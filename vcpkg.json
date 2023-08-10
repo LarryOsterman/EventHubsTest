@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "eventhubs-test-application",
+  "version": "0.15.2",
+  "dependencies": [
+    "azure-storage-blobs-cpp",
+    "azure-identity-cpp",
+    "azure-messaging-eventhubs-cpp"
+  ],
+  "builtin-baseline": "c9fa965c2a1b1334469b4539063f3ce95383653c",
+  "overrides": [
+    {
+      "name": "curl",
+      "version": "8.2.1"
+    },
+    {
+      "name": "azure-core-cpp",
+      "version": "1.10.2"
+    }
+  ]
+}
