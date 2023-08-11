@@ -3,7 +3,6 @@
 
 #include "EventHubsTest.h"
 
-#include <azure/identity/azure_cli_credential.hpp>
 #include <azure/messaging/eventhubs/consumer_client.hpp>
 #include <memory>
 
@@ -25,7 +24,6 @@ int main()
 	}
 	std::string connectionString{ connectionStringPtr };
 	std::string eventHubName{ eventHubPtr };
-	auto cred{ std::make_shared<Azure::Identity::AzureCliCredential>() };
 
 	Azure::Messaging::EventHubs::ConsumerClient consumer(connectionString, eventHubName);
 
@@ -37,12 +35,11 @@ int main()
 	partitionClientOptions.StartPosition.Inclusive = true;
 	auto partitionClient = consumer.CreatePartitionClient("2", partitionClientOptions);
 
-	auto events = partitionClient.ReceiveEvents(1);
+	auto events = partitionClient.ReceiveEvents(3);
 	for (const auto& event : events)
 	{
 		cout << "Event: " << event << std::endl;
 	}
 
-	cout << "Hello CMake." << endl;
 	return 0;
 }
