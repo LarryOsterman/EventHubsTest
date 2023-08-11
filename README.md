@@ -21,7 +21,7 @@ az login
 
 Create a resource group:
 ```pwsh
-az group create --name <your subscription ID> --location <your location>
+az group create --name <your group name> --location <your location> --subscription <your subscription>
 ```
 
 This should output something like:
